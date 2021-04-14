@@ -1,15 +1,25 @@
+// react modules
 import React from "react";
-import "./App.css";
+import { Route } from "react-router-dom";
+
 import { PostProvider } from "./providers/PostProvider";
 import PostList from "./components/PostList";
+import PostForm from "./components/PostForm";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <PostProvider>
-        <PostList />
+        <Route exact path="/">
+          <PostList />
+        </Route>
+
+        <Route path="/addPost">
+          <PostForm />
+        </Route>
       </PostProvider>
-    </div>
+    </>
   );
 }
 
